@@ -18,7 +18,7 @@ let counterObject= require('db-itemcounter')('albert-dev');
 console.log('getCount is ', await counterObject.getCount('TEN0','INV', 'A'));
 getCount is 0
 ```
-* If there is no counter record for the given valid  tenant, entity combination initially, 0 will be returned
+* If there is no counter record for the given valid  tenant, entity (and category) combination initially, 0 will be returned
 
 3. use increment function to increment the counter by value 1
 
