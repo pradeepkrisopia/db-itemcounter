@@ -17,14 +17,21 @@ then use getCount function to get the count of the specific module, category for
 ```
 console.log('getCount is ', await counterObject.getCount('TEN0','INV', 'A'));
 ```
+
 use increment function to increment the counter by value 1
 
 ```
 console.log('increment is ', await myTest.increment('TEN0','INV', 'A'));
 ```
+* After the first increment function call on a valid entity (and category combination), the return value is 1 and gets incremented sequentially by 1 after each following call.
 
 use decrement function to decrement the counter by value 1
 
 ```
 console.log('increment is ', await myTest.decrement('TEN0','INV', 'A'));
 ```
+* a counter for a valid entity (and category combination) can be decremented till 0, below which error would be thrown upon calling decrement.
+
+* If the specific entity or category combination does not exist, error is thrown by all functions
+* You can include a new entity, and its sub categories inside the categories.json file in the module.
+
