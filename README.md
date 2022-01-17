@@ -31,7 +31,7 @@ increment is 1
 
 ```
 console.log('decrement is ', await myTest.decrement('TEN0','INV', 'A'));
-decement is 0
+decrement is 0
 ```
 * a counter for a valid entity (and category combination) can be decremented till 0, below which error would be thrown upon calling decrement.
 
