@@ -37,5 +37,5 @@ decrement is 0
 * a counter for a valid entity (and category combination) can be decremented till 0, below which error would be thrown upon calling decrement.
 
 * If the specific entity or category combination does not exist, error is thrown by all functions
-* You can include a new entity, and its sub categories inside the categories.json file in the module folder.
+* You can include a new entity, and its sub categories inside the category.json file in the module folder.
 
