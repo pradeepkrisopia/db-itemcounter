@@ -16,19 +16,22 @@ let counterObject= require('db-itemcounter')('albert-dev');
 
 ```
 console.log('getCount is ', await counterObject.getCount('TEN0','INV', 'A'));
+getCount is 0
 ```
 
 3. use increment function to increment the counter by value 1
 
 ```
 console.log('increment is ', await myTest.increment('TEN0','INV', 'A'));
+increment is 1
 ```
 * After the first increment function call on a valid entity (and category combination), the return value is 1 and gets incremented sequentially by 1 after each following call.
 
-4. use decrement function to decrement the counter by value 1
+4. use decrement function to decrement the counter by value 1 and return the resultant value
 
 ```
-console.log('increment is ', await myTest.decrement('TEN0','INV', 'A'));
+console.log('decrement is ', await myTest.decrement('TEN0','INV', 'A'));
+decement is 0
 ```
 * a counter for a valid entity (and category combination) can be decremented till 0, below which error would be thrown upon calling decrement.
 
