@@ -1,0 +1,20 @@
+{
+  "name": "lib-dbitemcounter",
+  "version": "1.0.0",
+  "description": "A package that provides functions to keep count of dynamodb records for each Albert Module. ",
+  "main": "index.js",
+  "dependencies": {
+    "aws-sdk": "^2.655.0",
+    "dotenv": "^8.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "DynamoDB",
+    "record",
+    "counter"
+  ],
+  "author": "Albert Developer",
+  "license": "ISC"
+}
