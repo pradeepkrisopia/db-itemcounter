@@ -9,7 +9,7 @@ let counterObject= require('./index.js')('albert-dev');
 ```
 or after installing the node module through npm install use
 ```
-let counterObject= require('db-itemcounter')('albert-dev');
+let counterObject= require('lib-dbitemcounter')('albert-dev');
 ```
 * IMPORTANT - always get the table name from the .env file variable and avoid hardcoding table name. 
 
