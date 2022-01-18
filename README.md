@@ -48,5 +48,16 @@ getCount is  0
 ```
 
 * If the specific entity or category combination does not exist, error is thrown by all functions
+
+```
+console.log('getCount is ', await myTest.getCount('TEN0','DACX'));
+console.log('decrement is ', await myTest.decrement('TEN0','INV', 'Q'));
+console.log('getCount is ', await myTest.increment('TEN0','HHH'));
+
+getCount is  { error: 'Valid TenantId / Entity required' }
+decrement is  { error: 'The Entity / Category combination is invalid' }
+getCount is  { error: 'Valid TenantId / Entity required' }
+```
+
 * You can include a new entity, and its sub categories inside the category.json file in the module folder.
 
