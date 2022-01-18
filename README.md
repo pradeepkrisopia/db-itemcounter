@@ -1,4 +1,4 @@
-# db-itemcounter
+# lib-dbitemcounter
 Nodejs module that provides functionality to increment, decrement and get counter values for each dynamodb entity in Albert
 
 # How to use the module
@@ -11,6 +11,7 @@ or after installing the node module through npm install use
 ```
 let counterObject= require('db-itemcounter')('albert-dev');
 ```
+* IMPORTANT - always get the table name from the .env file variable and avoid hardcoding table name. 
 
 2. then use getCount function to get the count of the specific module, category for a tenantId
 
