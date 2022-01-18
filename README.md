@@ -37,6 +37,16 @@ decrement is 0
 ```
 * a counter for a valid entity (and category combination) can be decremented till 0, below which error would be thrown upon calling decrement.
 
+```
+console.log('getCount is ', await myTest.getCount('TEN0','DAC'));
+console.log('decrement is ', await myTest.decrement('TEN0','DAC'));
+console.log('getCount is ', await myTest.getCount('TEN0','DAC'));
+
+getCount is  0
+decrement is  { error: 'The conditional request failed : Trying to decrement below 0 / Count does not exist for the given combination'}
+getCount is  0
+```
+
 * If the specific entity or category combination does not exist, error is thrown by all functions
 * You can include a new entity, and its sub categories inside the category.json file in the module folder.
 
