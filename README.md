@@ -5,11 +5,11 @@ Nodejs module that provides functionality to increment, decrement and get counte
 
 1. Instantiate the db-itemcounter function with the name of the dynamodb table name as below
 ```
-let counterObject= require('./index.js')('albert-dev');
+let counterObject= require('./index.js')('table-dev');
 ```
 or after installing the node module through npm install use
 ```
-let counterObject= require('lib-dbitemcounter')('albert-dev');
+let counterObject= require('lib-dbitemcounter')('table-dev');
 ```
 * IMPORTANT - always get the table name from the .env file variable and avoid hardcoding table name. 
 
