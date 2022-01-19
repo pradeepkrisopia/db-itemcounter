@@ -1,4 +1,4 @@
-# lib-dbitemcounter
+# lib-dynamoitemcounter
 Nodejs module that provides functionality to increment, decrement and get counter values for each dynamodb entity in Albert
 
 # How to use the module
