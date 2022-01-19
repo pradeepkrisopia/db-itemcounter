@@ -1,5 +1,5 @@
 {
-  "name": "lib-dbitemcounter",
+  "name": "lib-dynamoitemcounter",
   "version": "1.0.0",
   "description": "A package that provides functions to keep count of dynamodb records for each Albert Module. ",
   "main": "index.js",
@@ -11,8 +11,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "DynamoDB",
-    "record",
+    "Dynamo",
+    "item",
     "counter"
   ],
   "author": "Albert Developer",

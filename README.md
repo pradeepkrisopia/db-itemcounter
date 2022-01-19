@@ -58,6 +58,12 @@ getCount is  { error: 'Valid TenantId / Entity required' }
 decrement is  { error: 'The Entity / Category combination is invalid' }
 getCount is  { error: 'Valid TenantId / Entity required' }
 ```
+* Every function will take in 3 parameters
 
-* You can include a new entity, and its sub categories inside the category.json file in the module folder.
+myTest.getCount(tenantId, entity, category)
+tenantId - TEN0/TEN1 (mandatory)
+entity - name of the entity (module) - namely like COM, INV, LOC etc (mandatory)
+category - name of category within the entity as specified in the category.json file (non mandatory)
+
+* You can check for existing list of categories inside an entity, include a new entity, and its sub categories inside the category.json in the module folder.
 

@@ -4,16 +4,16 @@ const dotenv = require('dotenv').config()
 module.exports = function (tableName) {
     increment = async (tenantId, entity, category) => {
         try {
-            let pk, documentClient = await getDocClient()
+            let pk = `${tenantId}#TOTCNT`, sk, documentClient = await getDocClient()
             if(!(tenantId && entityCategory[entity])) {throw "Valid TenantId / Entity required"} else           
             if (category){
                 if (!(entityCategory[entity].includes(category))) {throw "The Entity / Category combination is invalid"}
                 //category = Array.isArray(category) ? category.join('#') : category
-                pk = `${tenantId}#${entity}#${category}`
+                sk = `${entity}#${category}`
             } else {
-                pk = `${tenantId}#${entity}`    
+                sk = `${entity}`    
             }           
-            let id = { PK: `${pk}`, SK: `${entity}` };
+            let id = { PK: pk, SK: sk };
             let result = await documentClient.update({
                 "TableName": tableName,
                 "ReturnValues": "UPDATED_NEW",
@@ -39,17 +39,16 @@ module.exports = function (tableName) {
 
     decrement = async (tenantId, entity, category) => {
         try {
-            let pk, documentClient = await getDocClient()
+            let pk = `${tenantId}#TOTCNT`, documentClient = await getDocClient()
             if(!(tenantId && entityCategory[entity])) {throw "Valid TenantId / Entity required"} else           
             if (category){
                 if (!(entityCategory[entity].includes(category))) {throw "The Entity / Category combination is invalid"}
                 //category = Array.isArray(category) ? category.join('#') : category
-                pk = `${tenantId}#${entity}#${category}`
+                sk = `${entity}#${category}`
             } else {
-                pk = `${tenantId}#${entity}`    
-            }
-
-            let id = { PK: `${pk}`, SK: `${entity}` };
+                sk = `${entity}`    
+            }           
+            let id = { PK: pk, SK: sk };
             let result = await documentClient.update({
                 "TableName": tableName,
                 "ReturnValues": "UPDATED_NEW",
@@ -77,17 +76,16 @@ module.exports = function (tableName) {
     getCount = async(tenantId, entity, category) => {
         try {
 
-            let pk, documentClient = await getDocClient()
+            let pk = `${tenantId}#TOTCNT`, documentClient = await getDocClient()
             if(!(tenantId && entityCategory[entity])) {throw "Valid TenantId / Entity required"} else           
             if (category){
                 if (!(entityCategory[entity].includes(category))) {throw "The Entity / Category combination is invalid"}
                 //category = Array.isArray(category) ? category.join('#') : category
-                pk = `${tenantId}#${entity}#${category}`
+                sk = `${entity}#${category}`
             } else {
-                pk = `${tenantId}#${entity}`    
-            }
-
-            let id = { PK: `${pk}`, SK: `${entity}` }
+                sk = `${entity}`    
+            }           
+            let id = { PK: pk, SK: sk };
             let result = await documentClient.get({
                 "TableName": tableName,
                 "Key": id
@@ -103,7 +101,7 @@ module.exports = function (tableName) {
     }
 
     const processResult = async (result) => {
-        return result.Item ? result.Item.count : (result.Attributes ? result.Attributes.count : ((Object.keys(result).length === 0) ? 0 : result))
+        return result.Item ? parseInt(result.Item.count) : (result.Attributes ? parseInt(result.Attributes.count) : ((Object.keys(result).length === 0) ? 0 : result))
     }
 
     return {increment, decrement, getCount}       
